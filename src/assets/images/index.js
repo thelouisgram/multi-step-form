@@ -1,4 +1,6 @@
-import sidebarDesktop from './bg-sidebar-desktop.svg'
+import iconAdvanced from './icon-advanced.svg'
+import iconArcade from './icon-arcade.svg'
+import iconPro from './icon-pro.svg'
 
 
-export {sidebarDesktop};
+export {iconAdvanced, iconPro, iconArcade};
