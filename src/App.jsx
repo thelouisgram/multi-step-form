@@ -3,7 +3,7 @@ import Pagination from './components/pagination';
 import PersonalInfo from './pages/PersonalInfo';
 import { motion, AnimatePresence } from 'framer-motion';
 import SelectPlan from './pages/SelectPlan';
-import AddOns from './pages/addOns';
+import AddOns from './pages/AddOns';
 import data from './data/AddsOnData';
 import Summary from './pages/Summary';
 import ThankYou from './components/ThankYou';
