@@ -24,11 +24,11 @@ const AddsOn = ({ goBack, selectedData, checkedStates,
     const addOn = allAddsOn.map((addOn, index) => {
         return (
             <div key={index}
-                className={`flex justify-between items-center border-[1px] px-6 py-4 rounded-[10px] 
+                className={`flex justify-between items-center border-[1px] px-3 md:px-6 py-4 rounded-[10px] 
                 hover:border-purplishBlue
                 ${addOn.checked ? 'border-purplishBlue bg-magnolia' :
                         ' border-lightGray bg-transparent'}`}>
-                <div className='flex items-center gap-6'>
+                <div className='flex items-center gap-3 md:gap-6'>
                     <input type='checkbox' checked={checkedStates[index]}
                         onClick={() => toggleCheckedAddsOn(index)}
                         onChange={() => handleCheckboxChange(index)}
@@ -71,7 +71,7 @@ const AddsOn = ({ goBack, selectedData, checkedStates,
                     </div>
 
                 </div>
-                <div className='flex justify-between items-center font-Ubuntu cursor-pointer'>
+                <div className='flex justify-between items-center mt-10 md:mt-0 font-Ubuntu cursor-pointer'>
                     <GoBackBtn goBack={goBack} />
                     <NextStep />
                 </div>

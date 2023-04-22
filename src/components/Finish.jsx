@@ -65,7 +65,7 @@ const Finish = ({ submitForm, selectedPlan, goBack, totalPrice, setCurrentStep, 
                             </div>
                         </div>
                         {/* Bottom Container */}
-                        <div className="flex justify-between items-center font-Ubuntu cursor-pointer">
+                        <div className="flex justify-between items-center  mt-10 md:mt-0 font-Ubuntu cursor-pointer">
                             <GoBackBtn goBack={goBack} />
                             <NextStep />
                         </div>

@@ -60,7 +60,7 @@ const SelectPlan = ({ planPeriod, goBack, togglePlan, setSelectedPlan,
                         </p>
                     </div>
 
-                    <div className='flex justify-between mb-8'>
+                    <div className='flex flex-col md:flex-row gap-4 md:gap-0 justify-between mb-8'>
                         {plan}
                     </div>
 
@@ -72,7 +72,7 @@ const SelectPlan = ({ planPeriod, goBack, togglePlan, setSelectedPlan,
                     </div>
 
                 </div>
-                <div className='flex justify-between items-center font-Ubuntu cursor-pointer'>
+                <div className='flex justify-between items-center font-Ubuntu mt-8 md:mt-0 cursor-pointer'>
                     <GoBackBtn goBack={goBack} />
                     <NextStep />
                 </div>

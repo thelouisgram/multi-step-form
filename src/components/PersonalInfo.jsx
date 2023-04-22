@@ -121,7 +121,7 @@ const PersonalInfo = ({ formData, setFormData, setCurrentStep }) => {
 					</div>
 				</div>
 				{/* Bottom Container */}
-				<div className="hidden md:flex justify-end">
+				<div className="mt-8 flex justify-end">
 					{/* Submit Button */}
 					<NextStep />
 				</div>
