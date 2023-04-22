@@ -6,21 +6,24 @@ const data = {
             plan: 'Arcade',
             image: iconArcade,
             price: 9,
-            duration: 'Monthly',
+            frequency: 'Monthly',
+            duration: 'month',
             periodMode: 'mo'
         },
         {
             plan: 'Advanced',
             image: iconAdvanced,
             price: 12,
-            duration: 'Monthly',
+            frequency: 'Monthly',
+            duration: 'month',
             periodMode: 'mo'
         },
         {
             plan: 'Pro',
             image: iconPro,
             price: 15,
-            duration: 'Monthly',
+            frequency: 'Monthly',
+            duration: 'month',
             periodMode: 'mo'
         },
     ],
@@ -29,7 +32,8 @@ const data = {
             plan: 'Arcade',
             image: iconArcade,
             price: 90,
-            duration: 'yearly',
+            frequency: 'yearly',
+            duration: 'year',
             periodMode: 'yr',
             freePeriod: '2 months free'
         },
@@ -37,7 +41,8 @@ const data = {
             plan: 'Advanced',
             image: iconAdvanced,
             price: 120,
-            duration: 'yearly',
+            frequency: 'yearly',
+            duration: 'year',
             periodMode: 'yr',
             freePeriod: '2 months free'
         },
@@ -45,7 +50,8 @@ const data = {
             plan: 'Pro',
             image: iconPro,
             price: 150,
-            duration: 'yearly',
+            frequency: 'yearly',
+            duration: 'year',
             periodMode: 'yr',
             freePeriod: '2 months free'
         },

@@ -7,8 +7,8 @@ const Plan = ({ planPeriod, handlePlanClick, selectedPlan, plan, index }) => {
             onClick={() => handlePlanClick(index)}
             className={`h-auto w-[140px] 
                 border-[1px]  p-4 rounded-[8px]
-                font-Ubuntu hover:border-purplishblue cursor-pointer 
-                 ${selectedPlan === plan ? 'border-purplishblue bg-alabaster' : 'border-lightGray bg-transparent'}`}
+                font-Ubuntu hover:border-purplishBlue cursor-pointer 
+                 ${selectedPlan === plan ? 'border-purplishBlue bg-magnolia' : 'border-lightGray bg-transparent'}`}
         >
             <div className="mb-10">
                 <img src={plan.image} className="w-[36px] h-[36px]" />

@@ -21,7 +21,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-
 .switch {
   --circle-dim: 1.08em;
   font-size: 14px;

@@ -9,7 +9,7 @@ export default {
       colors: {
         /* Blue shades */
         marineBlue: 'hsl(213, 96%, 18%)',
-        purplishblue: 'hsl(243, 100%, 62%)',
+        purplishBlue: 'hsl(243, 100%, 62%)',
         pastelBlue: 'hsl(228, 100%, 84%)',
         lightBlue: 'hsl(206, 94%, 87%)',
 

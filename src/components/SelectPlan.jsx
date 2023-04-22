@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import NextStep from './NextStep'
 import data from './SelectPlanData'
 import PeriodCheckbox from './PeriodCheckbox'
 import Plan from './Plan'
 import GoBackBtn from './GoBackBtn'
 
-const SelectPlan = ({ planPeriod, goBack, togglePlan, setSelectedPlan, 
-    selectedPlan, setCurrentStep, isChecked, setIsChecked}) => {
+const SelectPlan = ({ planPeriod, goBack, togglePlan, setSelectedPlan,
+    selectedPlan, setCurrentStep, isChecked, setIsChecked }) => {
 
     // Ternary to choose between monthly and yearly data
     const selectedData = planPeriod ? data.monthly : data.yearly;
@@ -23,15 +23,15 @@ const SelectPlan = ({ planPeriod, goBack, togglePlan, setSelectedPlan,
 
     //  Map through Data and render respective plans
     const plan = selectedData.map((plan, index) => {
-        return(
-        <Plan key={index} planPeriod={planPeriod} selectedPlan={selectedPlan}
-            selectedData={selectedData} handlePlanClick={handlePlanClick} plan={plan} index={index}
+        return (
+            <Plan key={index} planPeriod={planPeriod} selectedPlan={selectedPlan}
+                selectedData={selectedData} handlePlanClick={handlePlanClick} plan={plan} index={index}
             />
         )
     })
 
     // Submit form
-    const submitForm = (event) => { 
+    const submitForm = (event) => {
         event.preventDefault()
         setCurrentStep(prev => prev + 1)
     }
@@ -45,15 +45,16 @@ const SelectPlan = ({ planPeriod, goBack, togglePlan, setSelectedPlan,
 
 
     return (
-        <div className='h-full w-full'>
+        <div className='h-full  '>
             {/* Form container */}
             <form onSubmit={submitForm}
-                className="font-Ubuntu h-full w-full flex flex-col justify-between">
+                className="font-Ubuntu h-full   flex flex-col justify-between">
                 {/* Upper Container */}
                 <div>
                     {/* Legend and form description */}
                     <div className="mb-10">
-                        <legend className="text-[32px] font-Ubuntu font-bold text-marineBlue">Select your plan</legend>
+                        <legend className="text-[32px] font-Ubuntu font-bold
+                         text-marineBlue">Select your plan</legend>
                         <p className="text-coolGray text-[16px] font-Ubuntu">
                             You have the option of monthly or yearly billing.
                         </p>
@@ -63,11 +64,11 @@ const SelectPlan = ({ planPeriod, goBack, togglePlan, setSelectedPlan,
                         {plan}
                     </div>
 
-                    <div className='w-full p-3 flex justify-center gap-3                                                                                                              font-[500] text-[15px]
+                    <div className='  p-3 flex justify-center gap-3                                                                                                              font-[500] text-[15px]
                    bg-magnolia rounded-[10px]'>
-                        <h2 className={`${planPeriod ? 'text-marine-blue' : 'text-coolGray'}`}>Monthly</h2>
+                        <h2 className={`${planPeriod ? 'text-marineBlue' : 'text-coolGray'}`}>Monthly</h2>
                         <PeriodCheckbox isChecked={isChecked} onChange={handleCheckboxChange} />
-                        <h2 className={`${!planPeriod ? 'text-marine-blue' : 'text-coolGray'}`}>Yearly</h2>
+                        <h2 className={`${!planPeriod ? 'text-marineBlue' : 'text-coolGray'}`}>Yearly</h2>
                     </div>
 
                 </div>

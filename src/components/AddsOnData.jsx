@@ -4,22 +4,28 @@ const data = {
 			title: 'Online service',
 			description: 'Access to multiplayer games',
 			price: 1,
-			duration: 'Monthly',
-			periodMode: 'mo'
+			frequency: 'Monthly',
+			duration: 'month',
+			periodMode: 'mo',
+			checked : false
 		},
 		{
 			title: 'Larger storage ',
 			description: 'Extra 1TB of cloud save ',
 			price: 2,
-			duration: 'Monthly',
-			periodMode: 'mo'
+			frequency: 'Monthly',
+			duration: 'month',
+			periodMode: 'mo',
+			checked: false
 		},
 		{
 			title: 'Customizable Profile ',
 			description: 'Custom theme on your profile ',
 			price: 2,
-			duration: 'Monthly',
-			periodMode: 'mo'
+			frequency: 'Monthly',
+			duration: 'month',
+			periodMode: 'mo',
+			checked: false
 		}
 	],
 	yearly: [
@@ -27,22 +33,28 @@ const data = {
 			title: 'Online service',
 			description: 'Access to multiplayer games',
 			price: 10,
-			duration: 'yearly',
-			periodMode: 'yr'
+			frequency: 'yearly',
+			duration: 'year',
+			periodMode: 'yr',
+			checked: false,
 		},
 		{
 			title: 'Larger storage ',
 			description: 'Extra 1TB of cloud save ',
 			price: 20,
-			duration: 'yearly',
-			periodMode: 'yr'
+			frequency: 'yearly',
+			duration: 'year',
+			periodMode: 'yr',
+			checked: false
 		},
 		{
 			title: 'Customizable Profile ',
 			description: 'Custom theme on your profile ',
 			price: 20,
-			duration: 'yearly',
-			periodMode: 'yr'
+			frequency: 'yearly',
+			duration: 'year',
+			periodMode: 'yr',
+			checked: false
 		}
 	]
 };
