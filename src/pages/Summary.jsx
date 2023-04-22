@@ -17,7 +17,7 @@ const Summary = ({ goBack, selectedPlan, setCurrentStep, checkedAddsOn }) => {
     const totalAddOnPrice = checkedAddsOn.reduce((acc, addOn) => acc + addOn.price, 0);
     const totalPrice = totalAddOnPrice + selectedPlan.price
 
-    // Submit form
+    // Submit form here
     const submitForm = (event) => {
         event.preventDefault()
         setCurrentStep(prev => prev + 1)
