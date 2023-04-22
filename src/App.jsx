@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Pagination from './components/pagination';
-import PersonalInfo from './components/PersonalInfo';
+import PersonalInfo from './pages/PersonalInfo';
 import { motion, AnimatePresence } from 'framer-motion';
-import SelectPlan from './components/SelectPlan';
-import AddsOn from './components/AddsOn';
-import data from './components/AddsOnData';
-import Summary from './components/Summary';
+import SelectPlan from './pages/SelectPlan';
+import AddsOn from './pages/AddsOn';
+import data from './data/AddsOnData';
+import Summary from './pages/Summary';
 
 export default function App() {
-  // Track page
+  // Track page displayed
   const [currentStep, setCurrentStep] = useState(0);
 
-  // Plan Period State; where true is monthly
+  // Plan Period State; where true === monthly
   const [planPeriod, setPlanPeriod] = useState(true);
 
   // Personal info form State
@@ -47,7 +47,7 @@ export default function App() {
     [selectedData]
   );
 
-  // Toggle plan between Monthly and Yearly; true is monthly
+  // Toggle plan between Monthly and Yearly; true === monthly
   const togglePlan = () => {
     setPlanPeriod((prev) => !prev);
   };
@@ -57,8 +57,10 @@ export default function App() {
     setCurrentStep((prev) => prev - 1);
   };
 
+  // State for checked addsOn
   const [checkedAddsOn, setCheckedAddsOn] = useState([]);
 
+  // Filtering checked addOn to a new array
   const filterAddsOn = () => {
     const filteredAddsOn = allAddsOn.filter(addsOn => addsOn.checked === true);
     setCheckedAddsOn(filteredAddsOn);
@@ -83,7 +85,7 @@ export default function App() {
             </div>
           </div>
           {/* Right Container */}
-          <div className="md:w-[680px] bg-white md:bg-transparent rounded-[10px] md:rounded-0 py-10 px-6 md:px-28 md:pt-10 md:pb-6 md:h-full">
+          <div className="md:w-[680px] shadow-lg md:shadow-none bg-white md:bg-transparent rounded-[10px] md:rounded-0 py-10 px-6 md:px-28 md:pt-10 md:pb-6 md:h-full">
             {/* Personal Info form */}
             <AnimatePresence mode="wait">
               {currentStep === 0 && (

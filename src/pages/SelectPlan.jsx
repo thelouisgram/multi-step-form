@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import NextStep from './NextStep'
-import data from './SelectPlanData'
-import PeriodCheckbox from './PeriodCheckbox'
-import Plan from './Plan'
-import GoBackBtn from './GoBackBtn'
+import NextStep from '../components/buttons/NextStep'
+import data from '../data/SelectPlanData'
+import PeriodCheckbox from '../components/PeriodCheckbox'
+import Plan from '../components/Plan'
+import GoBackBtn from '../components/buttons/GoBackBtn'
 
 const SelectPlan = ({ planPeriod, goBack, togglePlan, setSelectedPlan,
     selectedPlan, setCurrentStep, isChecked, setIsChecked }) => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Finish from './Finish';
-import ThankYou from './ThankYou';
+import Finish from '../components/Finish';
+import ThankYou from '../components/ThankYou';
 
 
 const Summary = ({ goBack, selectedPlan, setCurrentStep, checkedAddsOn }) => {

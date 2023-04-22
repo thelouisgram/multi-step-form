@@ -1,6 +1,6 @@
 import React from 'react'
-import GoBackBtn from './GoBackBtn'
-import NextStep from './NextStep'
+import GoBackBtn from '../components/buttons/GoBackBtn'
+import NextStep from '../components/buttons/NextStep'
 
 const AddsOn = ({ goBack, selectedData, checkedStates,
     setCheckedStates, setAllAddsOn, allAddsOn, setCurrentStep }) => {

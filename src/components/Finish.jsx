@@ -1,6 +1,6 @@
 import React from 'react';
-import NextStep from './NextStep';
-import GoBackBtn from './GoBackBtn';
+import NextStep from './buttons/NextStep';
+import GoBackBtn from './buttons/GoBackBtn';
 import { motion, AnimatePresence } from 'framer-motion';
 
 

@@ -1,4 +1,4 @@
-import data from './paginationData'
+import data from '../data/paginationData'
 import React from 'react'
 
 const Pagination = ({ currentStep }) => {
@@ -11,8 +11,8 @@ const Pagination = ({ currentStep }) => {
             <div key={index} className='flex gap-3 items-center'>
                 <div className={`border-[1px] w-[32px] h-[32px] rounded-full
                   flex justify-center items-center font-Ubuntu 
-                 text-[14px]  font-[700] ${currentStep === index ? activePagination : 
-                 'border-white text-white'}`}>
+                 text-[14px]  font-[700] ${currentStep === index ? activePagination :
+                        'border-white text-white'}`}>
                     {page.id}
                 </div>
                 <div className='hidden md:flex md:flex-col'>
