@@ -10,7 +10,7 @@ const Summary = ({ goBack, selectedPlan, setCurrentStep, checkedAddsOn }) => {
     const addOn = checkedAddsOn.map((addOn, index) => {
         return (
             <div key={index} className='flex justify-between'>
-                <p className='text-coolGray text-[15px] font-[500]'>{addOn.title}</p>
+                <p className='text-coolGray text-[14px] font-[500]'>{addOn.title}</p>
                 <h4 className='text-marineBlue text-[15px]'>${addOn.price}/{addOn.periodMode}</h4>
             </div>
         )
@@ -26,7 +26,7 @@ const Summary = ({ goBack, selectedPlan, setCurrentStep, checkedAddsOn }) => {
     }
 
     return (
-        <div className="h-full  ">
+        <div className="md:h-full  ">
 
             {!finish &&
                 <Finish

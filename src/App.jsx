@@ -8,164 +8,164 @@ import data from './components/AddsOnData';
 import Summary from './components/Summary';
 
 export default function App() {
-    // Track page
-    const [ currentStep, setCurrentStep ] = useState(0);
+  // Track page
+  const [currentStep, setCurrentStep] = useState(0);
 
-    // Plan Period State; where true is monthly
-    const [ planPeriod, setPlanPeriod ] = useState(true);
+  // Plan Period State; where true is monthly
+  const [planPeriod, setPlanPeriod] = useState(true);
 
-    // Personal info form State
-    const [ formData, setFormData ] = useState({
-      name: '',
-      email: '',
-      phoneNumber: ''
-    });
+  // Personal info form State
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phoneNumber: ''
+  });
 
-    // Track checkbox state i.e plan period checkbox to keep its previous appearance on change of page
-    const [ isChecked, setIsChecked ] = useState(false);
+  // Track checkbox state i.e plan period checkbox to keep its previous appearance on change of page
+  const [isChecked, setIsChecked] = useState(false);
 
-    // Select Plan form state; empty array at the start
-    const [ selectedPlan, setSelectedPlan ] = useState(null);
+  // Select Plan form state; empty array at the start
+  const [selectedPlan, setSelectedPlan] = useState(null);
 
-    // Ternary to choose between monthly and yearly plan
-    const selectedData = planPeriod ? data.monthly : data.yearly;
+  // Ternary to choose between monthly and yearly plan
+  const selectedData = planPeriod ? data.monthly : data.yearly;
 
-    // Hold AddsOn Data
-    const [ allAddsOn, setAllAddsOn ] = useState(selectedData);
+  // Hold AddsOn Data
+  const [allAddsOn, setAllAddsOn] = useState(selectedData);
 
-    // Track multiple check box, set all to false at the beginning and allow changes individually
-    const [ checkedStates, setCheckedStates ] = useState(selectedData.map(() => false));
+  // Track multiple check box, set all to false at the beginning and allow changes individually
+  const [checkedStates, setCheckedStates] = useState(selectedData.map(() => false));
 
-    // Update varieties on change of plan period
-    useEffect(
-      () => {
-        // Change allAddsOn content based on plan period
-        setAllAddsOn(selectedData);
-        // Change addsOn checkboxes:checked back to false on change of plan period
-        setCheckedStates(selectedData.map(() => false));
-      },
-      [ selectedData ]
-    );
+  // Update varieties on change of plan period
+  useEffect(
+    () => {
+      // Change allAddsOn content based on plan period
+      setAllAddsOn(selectedData);
+      // Change addsOn checkboxes:checked back to false on change of plan period
+      setCheckedStates(selectedData.map(() => false));
+    },
+    [selectedData]
+  );
 
-    // Toggle plan between Monthly and Yearly; true is monthly
-    const togglePlan = () => {
-      setPlanPeriod((prev) => !prev);
-    };
+  // Toggle plan between Monthly and Yearly; true is monthly
+  const togglePlan = () => {
+    setPlanPeriod((prev) => !prev);
+  };
 
-    // Go back one page
-    const goBack = () => {
-      setCurrentStep((prev) => prev - 1);
-    };
+  // Go back one page
+  const goBack = () => {
+    setCurrentStep((prev) => prev - 1);
+  };
 
-    const [checkedAddsOn, setCheckedAddsOn] = useState([]);
+  const [checkedAddsOn, setCheckedAddsOn] = useState([]);
 
-    const filterAddsOn = () => {
-      const filteredAddsOn = allAddsOn.filter(addsOn => addsOn.checked === true);
-      setCheckedAddsOn(filteredAddsOn);
-    };
+  const filterAddsOn = () => {
+    const filteredAddsOn = allAddsOn.filter(addsOn => addsOn.checked === true);
+    setCheckedAddsOn(filteredAddsOn);
+  };
 
-    // Call filterAddsOn when the component mounts
-    useEffect(() => {
-      filterAddsOn();
-    }, [allAddsOn]);
-    
-    return (
-      <div>
-        {/* Entire Page container */}
-        <section id="page" className="bg-magnolia w-full h-[100vh] flex md:justify-center md:items-center">
-          {/* Content Container */}
-          <div className="w-[980px] h-[600px] bg-white rounded-[15px] flex p-4">
-            {/* Left Div Container */}
-            <div className="left-container h-full w-[275px] rounded-[10px] pl-8 pt-10">
-              {/* Left Container Content */}
-              <div>
-                <Pagination currentStep={currentStep} />
-              </div>
-            </div>
-            {/* Right Container */}
-            <div className="w-[680px] px-28 pt-10 pb-6 h-full">
-              {/* Personal Info form */}
-              <AnimatePresence mode="wait">
-                {currentStep === 0 && (
-                  <motion.div
-                    key="personal-info"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -40 }}
-                    transition={{ duration: 0.6, ease: 'easeInOut' }}
-                    className="h-full"
-                  >
-                    <PersonalInfo
-                      setCurrentStep={setCurrentStep}
-                      formData={formData}
-                      setFormData={setFormData}
-                    />
-                  </motion.div>
-                )}
-                {/* Select Plan form */}
-                {currentStep === 1 && (
-                  <motion.div
-                    key="select-plan"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -40 }}
-                    transition={{ duration: 0.6, ease: 'easeInOut' }}
-                    className="h-full"
-                  >
-                    <SelectPlan
-                      planPeriod={planPeriod}
-                      goBack={goBack}
-                      togglePlan={togglePlan}
-                      setSelectedPlan={setSelectedPlan}
-                      selectedPlan={selectedPlan}
-                      setCurrentStep={setCurrentStep}
-                      isChecked={isChecked}
-                      setIsChecked={setIsChecked}
-                    />
-                  </motion.div>
-                )}
-                {/* Pick Adds-On */}
-                {currentStep === 2 && (
-                  <motion.div
-                    key="adds-on"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -40 }}
-                    transition={{ duration: 0.6, ease: 'easeInOut' }}
-                    className="h-full"
-                  >
-                    <AddsOn
-                      goBack={goBack}
-                      planPeriod={planPeriod}
-                      selectedData={selectedData}
-                      checkedStates={checkedStates}
-                      setCheckedStates={setCheckedStates}
-                      setAllAddsOn={setAllAddsOn}
-                      allAddsOn={allAddsOn}
-                      setCurrentStep={setCurrentStep}
-                    />
-                  </motion.div>
-                )}
-                {/* Summary */}
-                {currentStep === 3 && (
-                  <motion.div
-                    key="summary"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -40 }}
-                    transition={{ duration: 0.6, ease: 'easeInOut' }}
-                    className="h-full"
-                  >
-                    <Summary goBack={goBack} 
-                      setCurrentStep={setCurrentStep} 
-                      selectedPlan={selectedPlan}
-                      checkedAddsOn={checkedAddsOn }/>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+  // Call filterAddsOn when the component mounts
+  useEffect(() => {
+    filterAddsOn();
+  }, [allAddsOn]);
+
+  return (
+    <div className='h-[100vh]'>
+      {/* Entire Page container */}
+      <section id="page" className="bg-magnolia  md:px-0 pt-10 md:pt-0 w-full h-[100vh] flex justify-center md:items-center">
+        {/* Content Container */}
+        <div className="md:w-[980px] md:h-[600px] px-6 h-auto md:bg-white rounded-[15px] flex flex-col md:flex-row md:p-4">
+          {/* Left Div Container */}
+          <div className="left-container h-auto md:h-full md:w-[275px] rounded-[10px] md:pl-8 md:pt-10">
+            {/* Left Container Content */}
+            <div>
+              <Pagination currentStep={currentStep} />
             </div>
           </div>
-        </section>
-      </div>
-    );
-  }
+          {/* Right Container */}
+          <div className="md:w-[680px] bg-white md:bg-transparent rounded-[10px] md:rounded-0 py-10 px-6 md:px-28 md:pt-10 md:pb-6 md:h-full">
+            {/* Personal Info form */}
+            <AnimatePresence mode="wait">
+              {currentStep === 0 && (
+                <motion.div
+                  key="personal-info"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -40 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                  className="md:h-full"
+                >
+                  <PersonalInfo
+                    setCurrentStep={setCurrentStep}
+                    formData={formData}
+                    setFormData={setFormData}
+                  />
+                </motion.div>
+              )}
+              {/* Select Plan form */}
+              {currentStep === 1 && (
+                <motion.div
+                  key="select-plan"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -40 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                  className="md:h-full"
+                >
+                  <SelectPlan
+                    planPeriod={planPeriod}
+                    goBack={goBack}
+                    togglePlan={togglePlan}
+                    setSelectedPlan={setSelectedPlan}
+                    selectedPlan={selectedPlan}
+                    setCurrentStep={setCurrentStep}
+                    isChecked={isChecked}
+                    setIsChecked={setIsChecked}
+                  />
+                </motion.div>
+              )}
+              {/* Pick Adds-On */}
+              {currentStep === 2 && (
+                <motion.div
+                  key="adds-on"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -40 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                  className="md:h-full"
+                >
+                  <AddsOn
+                    goBack={goBack}
+                    planPeriod={planPeriod}
+                    selectedData={selectedData}
+                    checkedStates={checkedStates}
+                    setCheckedStates={setCheckedStates}
+                    setAllAddsOn={setAllAddsOn}
+                    allAddsOn={allAddsOn}
+                    setCurrentStep={setCurrentStep}
+                  />
+                </motion.div>
+              )}
+              {/* Summary */}
+              {currentStep === 3 && (
+                <motion.div
+                  key="summary"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -40 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                  className="md:h-full"
+                >
+                  <Summary goBack={goBack}
+                    setCurrentStep={setCurrentStep}
+                    selectedPlan={selectedPlan}
+                    checkedAddsOn={checkedAddsOn} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

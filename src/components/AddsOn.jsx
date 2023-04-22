@@ -51,10 +51,10 @@ const AddsOn = ({ goBack, selectedData, checkedStates,
     }
 
     return (
-        <div className='h-full  '>
+        <div className='md:h-full  '>
             {/* Form container */}
             <form onSubmit={submitForm}
-                className="font-Ubuntu h-full   flex flex-col justify-between">
+                className="font-Ubuntu md:h-full   flex flex-col justify-between">
                 {/* Upper Container */}
                 <div>
                     {/* Legend and form description */}

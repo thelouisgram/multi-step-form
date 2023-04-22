@@ -10,9 +10,9 @@ const ThankYou = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
-                className="h-full"
+                className="md:h-full"
             >
-                <div className="font-Ubuntu h-full   flex flex-col text-center justify-center gap-4 items-center">
+                <div className="font-Ubuntu md:h-full   flex flex-col text-center justify-center gap-4 items-center">
                     <img src={icon} />
                     <h1 className="text-marineBlue font-[700] text-[32px]">Thank you!</h1>
                     <p className="text-coolGray">

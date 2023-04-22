@@ -11,11 +11,11 @@ const Finish = ({ submitForm, selectedPlan, goBack, totalPrice, setCurrentStep, 
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -40 }}
                 transition={{ duration: 0.6, ease: 'easeInOut' }}
-                className="h-full"
+                className="md:h-full"
             >
-                <div className="h-full">
+                <div className="md:h-full">
                     {/* Form container */}
-                    <form onSubmit={submitForm} className="font-Ubuntu h-full   flex flex-col justify-between">
+                    <form onSubmit={submitForm} className="font-Ubuntu md:h-full   flex flex-col justify-between">
                         {/* Upper Container */}
                         <div>
                             {/* Legend and form description */}
