@@ -3,9 +3,10 @@ import Pagination from './components/pagination';
 import PersonalInfo from './pages/PersonalInfo';
 import { motion, AnimatePresence } from 'framer-motion';
 import SelectPlan from './pages/SelectPlan';
-import AddsOn from './pages/AddsOn';
+import AddOns from './pages/addOns';
 import data from './data/AddsOnData';
 import Summary from './pages/Summary';
+import ThankYou from './components/ThankYou';
 
 export default function App() {
   // Track page displayed
@@ -30,8 +31,8 @@ export default function App() {
   // Ternary to choose between monthly and yearly plan
   const selectedData = planPeriod ? data.monthly : data.yearly;
 
-  // Hold AddsOn Data
-  const [allAddsOn, setAllAddsOn] = useState(selectedData);
+  // Hold addOns Data
+  const [allAddOns, setAllAddOns] = useState(selectedData);
 
   // Track multiple check box, set all to false at the beginning and allow changes individually
   const [checkedStates, setCheckedStates] = useState(selectedData.map(() => false));
@@ -39,9 +40,9 @@ export default function App() {
   // Update varieties on change of plan period
   useEffect(
     () => {
-      // Change allAddsOn content based on plan period
-      setAllAddsOn(selectedData);
-      // Change addsOn checkboxes:checked back to false on change of plan period
+      // Change allAddOns content based on plan period
+      setAllAddOns(selectedData);
+      // Change addOns checkboxes:checked back to false on change of plan period
       setCheckedStates(selectedData.map(() => false));
     },
     [selectedData]
@@ -57,19 +58,19 @@ export default function App() {
     setCurrentStep((prev) => prev - 1);
   };
 
-  // State for checked addsOn
+  // State for checked addOns
   const [checkedAddsOn, setCheckedAddsOn] = useState([]);
 
   // Filtering checked addOn to a new array
   const filterAddsOn = () => {
-    const filteredAddsOn = allAddsOn.filter(addsOn => addsOn.checked === true);
+    const filteredAddsOn = allAddOns.filter(addOns => addOns.checked === true);
     setCheckedAddsOn(filteredAddsOn);
   };
 
   // Call filterAddsOn when the component mounts
   useEffect(() => {
     filterAddsOn();
-  }, [allAddsOn]);
+  }, [allAddOns]);
 
   return (
     <div className='h-full md:h-[100vh]'>
@@ -136,14 +137,14 @@ export default function App() {
                   transition={{ duration: 0.6, ease: 'easeInOut' }}
                   className="md:h-full"
                 >
-                  <AddsOn
+                  <AddOns
                     goBack={goBack}
                     planPeriod={planPeriod}
                     selectedData={selectedData}
                     checkedStates={checkedStates}
                     setCheckedStates={setCheckedStates}
-                    setAllAddsOn={setAllAddsOn}
-                    allAddsOn={allAddsOn}
+                    setAllAddOns={setAllAddOns}
+                    allAddOns={allAddOns}
                     setCurrentStep={setCurrentStep}
                   />
                 </motion.div>
@@ -162,6 +163,18 @@ export default function App() {
                     setCurrentStep={setCurrentStep}
                     selectedPlan={selectedPlan}
                     checkedAddsOn={checkedAddsOn} />
+                </motion.div>
+              )}
+              {/* ThankYou */}
+              {currentStep === 4 && (
+                <motion.div
+                  key="thankyou"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                  className="md:h-full"
+                >
+                  <ThankYou />
                 </motion.div>
               )}
             </AnimatePresence>

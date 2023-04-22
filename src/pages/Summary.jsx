@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import Finish from '../components/Finish';
-import ThankYou from '../components/ThankYou';
-
 
 const Summary = ({ goBack, selectedPlan, setCurrentStep, checkedAddsOn }) => {
 
-    const [finish, setFinish] = useState(false)
-
+    // Render CheckedAddOns
     const addOn = checkedAddsOn.map((addOn, index) => {
         return (
             <div key={index} className='flex justify-between'>
@@ -16,30 +13,25 @@ const Summary = ({ goBack, selectedPlan, setCurrentStep, checkedAddsOn }) => {
         )
     })
 
+    // reduce through checkedAddOns and add all prices
     const totalAddOnPrice = checkedAddsOn.reduce((acc, addOn) => acc + addOn.price, 0);
     const totalPrice = totalAddOnPrice + selectedPlan.price
 
     // Submit form
     const submitForm = (event) => {
         event.preventDefault()
-        setFinish(true)
+        setCurrentStep(prev => prev + 1)
     }
 
     return (
-        <div className="md:h-full  ">
+        <div className="md:h-full">
+            <Finish
+                submitForm={submitForm}
+                selectedPlan={selectedPlan}
+                goBack={goBack} totalPrice={totalPrice}
+                setCurrentStep={setCurrentStep} checkedAddsOn={checkedAddsOn}
+                addOn={addOn} />
 
-            {!finish &&
-                <Finish
-                    submitForm={submitForm}
-                    selectedPlan={selectedPlan}
-                    goBack={goBack} totalPrice={totalPrice}
-                    setCurrentStep={setCurrentStep} checkedAddsOn={checkedAddsOn}
-                    addOn={addOn} />
-            }
-
-            {finish &&
-                <ThankYou />
-            }
         </div>
     );
 };

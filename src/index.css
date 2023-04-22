@@ -106,7 +106,7 @@ input:checked ~ .slider-card .slider-card-front {
 }
 
 input:checked ~ .slider-card {
-  transform: translateX(1.4em);
+  transform: translateX(1.43em);
 }
 
 input:checked ~ .slider {

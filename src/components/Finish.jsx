@@ -1,18 +1,11 @@
 import React from 'react';
-import NextStep from './buttons/NextStep';
 import GoBackBtn from './buttons/GoBackBtn';
-import { motion, AnimatePresence } from 'framer-motion';
+import Confirm from './buttons/Confirm';
 
 
 const Finish = ({ submitForm, selectedPlan, goBack, totalPrice, setCurrentStep, checkedAddsOn, addOn }) => {
     return (
-        <AnimatePresence mode="wait">
-            <motion.div
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -40 }}
-                transition={{ duration: 0.6, ease: 'easeInOut' }}
-                className="md:h-full"
-            >
+        
                 <div className="md:h-full">
                     {/* Form container */}
                     <form onSubmit={submitForm} className="font-Ubuntu md:h-full   flex flex-col justify-between">
@@ -67,12 +60,10 @@ const Finish = ({ submitForm, selectedPlan, goBack, totalPrice, setCurrentStep, 
                         {/* Bottom Container */}
                         <div className="flex justify-between items-center  mt-10 md:mt-0 font-Ubuntu cursor-pointer">
                             <GoBackBtn goBack={goBack} />
-                            <NextStep />
+                            <Confirm />
                         </div>
                     </form>
                 </div>
-            </motion.div>
-        </AnimatePresence>
     );
 };
 

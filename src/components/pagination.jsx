@@ -5,6 +5,11 @@ const Pagination = ({ currentStep }) => {
 
     const activePagination = 'border-lightBlue text-marineBlue bg-lightBlue'
 
+    if (currentStep === 4) {
+        currentStep = 3;
+    }
+
+
     // Render Pagination
     const page = data.map((page, index) => {
         return (
@@ -12,7 +17,7 @@ const Pagination = ({ currentStep }) => {
                 <div className={`border-[1px] w-[32px] h-[32px] rounded-full
                   flex justify-center items-center font-Ubuntu 
                  text-[14px]  font-[700] ${currentStep === index ? activePagination :
-                        'border-white text-white'}`}>
+                        'border-white text-white'} `}>
                     {page.id}
                 </div>
                 <div className='hidden md:flex md:flex-col'>

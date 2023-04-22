@@ -5,12 +5,14 @@ import EmailInput from '../components/inputs/EmailInput';
 import NumberInput from '../components/inputs/NumberInput';
 
 const PersonalInfo = ({ formData, setFormData, setCurrentStep }) => {
+	// State to track empty inputs
 	const [ fieldRequired, setFieldRequired ] = useState({
 		input1: false,
 		input2: false,
 		input3: false
 	});
 
+	// Submit function ensuring all required inputs are filled
 	const submitForm = (event) => {
 		event.preventDefault();
 		if (!formData.name) {
@@ -24,6 +26,7 @@ const PersonalInfo = ({ formData, setFormData, setCurrentStep }) => {
 		}
 	};
 
+	// Pushing the form values to FormData state
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setFormData((prevFormData) => {

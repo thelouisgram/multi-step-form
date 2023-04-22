@@ -5,7 +5,7 @@ const Plan = ({ planPeriod, handlePlanClick, selectedPlan, plan, index }) => {
     return (
         <div
             onClick={() => handlePlanClick(index)}
-            className={`md:h-auto md:w-[140px] flex md:flex-col gap-3 md:gap-0 items-center md:items-normal
+            className={`md:h-auto md:w-[140px] flex md:flex-col gap-3 md:gap-0 items-center md:items-start
                 border-[1px]  p-4 rounded-[8px]
                 font-Ubuntu hover:border-purplishBlue cursor-pointer 
                  ${selectedPlan === plan ? 'border-purplishBlue bg-magnolia' : 'border-lightGray bg-transparent'}`}
