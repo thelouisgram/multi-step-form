@@ -13,7 +13,7 @@ const Summary = ({ goBack, selectedPlan, setCurrentStep, checkedAddsOn }) => {
         )
     })
 
-    // reduce through checkedAddOns and add all prices
+    // reduce through checkedAddOns and add all prices; and total it
     const totalAddOnPrice = checkedAddsOn.reduce((acc, addOn) => acc + addOn.price, 0);
     const totalPrice = totalAddOnPrice + selectedPlan.price
 
