@@ -1,30 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import NextStep from '../components/buttons/NextStep';
-import data from '../data/SelectPlanData';
 import PeriodCheckbox from '../components/PeriodCheckbox';
 import Plan from '../components/Plan';
 import GoBackBtn from '../components/buttons/GoBackBtn';
 
-const SelectPlan = ({
-	planPeriod,
-	goBack,
-	togglePlan,
-	setSelectedPlan,
-	selectedPlan,
-	setCurrentStep,
-	isChecked,
-	setIsChecked
-}) => {
-	// Ternary to choose between monthly and yearly data
-	const selectedData = planPeriod ? data.monthly : data.yearly;
-
-	// Setting Default Selected Plan to the first of any plan period selected
-	useEffect(
-		() => {
-			setSelectedPlan(selectedData[0]);
-		},
-		[ selectedData ]
-	);
+const SelectPlan = ({ planPeriod, goBack, togglePlan, setSelectedPlan, selectedPlan, setCurrentStep, 
+					isChecked, setIsChecked, selectedData }) => {
+	
 
 	// Function to set the selected plan to whatever plan is clicked
 	const handlePlanClick = (index) => {

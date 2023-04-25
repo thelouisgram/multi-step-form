@@ -1,6 +1,6 @@
 import { iconAdvanced, iconArcade, iconPro } from "../assets/images";
 
-const data = {
+const planData = {
     monthly: [
         {
             plan: 'Arcade',
@@ -58,4 +58,4 @@ const data = {
     ]
 }
 
-export default data;
+export default planData;
