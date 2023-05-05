@@ -84,7 +84,7 @@ export default function App() {
       {/* Entire Page container */}
       <section id="page" className="bg-magnolia  md:px-0 pt-10 pb-10 md:pb-0 md:pt-0 w-full h-full flex justify-center md:items-center">
         {/* Content Container */}
-        <div className="md:w-[980px] md:my-10 md:h-[600px] px-6 h-auto md:bg-white 
+        <div className="md:w-[980px]  md:h-[600px] px-6 h-auto md:bg-white 
         rounded-[15px] flex flex-col md:flex-row md:p-4">
           {/* Left Div Container */}
           <LeftContainer currentStep={currentStep} />
