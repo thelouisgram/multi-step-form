@@ -45,7 +45,7 @@ Users should be able to:
                  This is a mobile view.
                  
   <p align="center">
-   <img src="https://github.com/thelouisgram/multi-step-form/blob/master/src/assets/images/mobile-view.png" height="500px">
+   <img src="https://github.com/thelouisgram/multi-step-form/blob/master/src/assets/images/mobile-view.jpg" height="500px">
   </p>
   
 ### Links
