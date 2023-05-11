@@ -3,7 +3,7 @@ import GoBackBtn from './buttons/GoBackBtn';
 import Confirm from './buttons/Confirm';
 
 
-const Finish = ({ submitForm, selectedPlan, goBack, totalPrice, setCurrentStep, checkedAddsOn, addOn }) => {
+const Finish = ({ submitForm, selectedPlan, goBack, totalPrice, setCurrentStep, checkedAddsOn, addOn, setCurrentVariant }) => {
     return (
         
                 <div className="md:h-full">
@@ -29,7 +29,10 @@ const Finish = ({ submitForm, selectedPlan, goBack, totalPrice, setCurrentStep, 
                                                 {selectedPlan.plan} ({selectedPlan.frequency})
                                             </h2>
                                             <p
-                                                onClick={() => setCurrentStep(1)}
+                                                onClick={() => {
+                                                    setCurrentStep(1),
+                                                    setCurrentVariant=("goBack")
+                                                }}
                                                 className="text-coolGray text-[14px] underline cursor-pointer
                                  hover:text-purplishBlue"
                                             >

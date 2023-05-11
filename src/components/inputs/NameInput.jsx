@@ -18,8 +18,9 @@ const NameInput = ( { fieldRequired, formData, handleChange }) => {
               value={formData.name}
               onChange={handleChange}
               placeholder="e.g. Stephen King"
-              className={`border-[1px] placeholder-bold placeholder-coolGray px-4 py-3 
-							 rounded-[4px] md:rounded-[8px] text-[16px] font-[500] focus:outline-none 
+              className={`border-[1px] placeholder-bold placeholder-coolGray px-4 py-3 text-marineBlue
+							 md:rounded-[8px] text-[16px] font-[500] focus:outline-none 
+                             focus:border-marineBlue rounded-[4px]
                              ${fieldRequired.input1
                       ? 'border-strawberryRed'
                       : 'border-lightGray'}`}

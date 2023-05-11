@@ -4,7 +4,7 @@ import NameInput from '../components/inputs/NameInput';
 import EmailInput from '../components/inputs/EmailInput';
 import NumberInput from '../components/inputs/NumberInput';
 
-const PersonalInfo = ({ formData, setFormData, setCurrentStep }) => {
+const PersonalInfo = ({ formData, setFormData, setCurrentStep, setCurrentVariant }) => {
 	// State to track empty inputs
 	const [ fieldRequired, setFieldRequired ] = useState({
 		input1: false,
@@ -22,6 +22,7 @@ const PersonalInfo = ({ formData, setFormData, setCurrentStep }) => {
 		} else if (!formData.phoneNumber) {
 			setFieldRequired({ ...fieldRequired, input3: true });
 		} else {
+			setCurrentVariant("nextPage")
 			setCurrentStep((prev) => prev + 1);
 		}
 	};

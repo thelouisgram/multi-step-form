@@ -52,9 +52,16 @@ export default function App() {
     setPlanPeriod((prev) => !prev);
   };
 
+  //Next page
+  const nextPage = () => {
+    setCurrentStep((prev) => prev + 1);
+    setCurrentVariant("nextPage")
+  }
+
   // Go back one page
   const goBack = () => {
     setCurrentStep((prev) => prev - 1);
+    setCurrentVariant("goBack")
   };
 
   // State for checked addOns
@@ -78,6 +85,30 @@ export default function App() {
     },
     [selectedData]
   );
+
+  // Create a state variable to keep track of the current variant
+  const [currentVariant, setCurrentVariant] = useState("default");
+  console.log(currentVariant)
+
+  const variants = {
+    nextPage: {
+      initial: { opacity: 0, x: 40 },
+      animate: { opacity: 1, x: 0 },
+      exit: { opacity: 0, x: -40 },
+      transition: { duration: 1, ease: 'easeInOut' }
+    },
+    goBack: {
+      initial: { opacity: 0, x: -40 },
+      animate: { opacity: 1, x: 0 },
+      exit: { opacity: 0, x: 40 },
+      transition: { duration: 1, ease: 'easeInOut' }
+    },
+    default: {
+      initial: { opacity: 0, y: 30 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 1, ease: 'easeInOut' }
+    }
+  };
 
   return (
     <div className='h-full md:h-[100vh]'>
@@ -107,7 +138,10 @@ export default function App() {
             setCheckedStates={setCheckedStates}
             setAllAddOns={setAllAddOns}
             allAddOns={allAddOns}
-            checkedAddsOn={checkedAddsOn}/>
+            checkedAddsOn={checkedAddsOn}
+            currentVariant={currentVariant}
+            setCurrentVariant={setCurrentVariant}
+            variants ={variants}/>
         </div>
       </section>
     </div>

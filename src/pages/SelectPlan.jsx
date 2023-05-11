@@ -5,7 +5,7 @@ import Plan from '../components/Plan';
 import GoBackBtn from '../components/buttons/GoBackBtn';
 
 const SelectPlan = ({ planPeriod, goBack, togglePlan, setSelectedPlan, selectedPlan, setCurrentStep, 
-					isChecked, setIsChecked, selectedData }) => {
+	isChecked, setIsChecked, selectedData, setCurrentVariant }) => {
 	
 
 	// Function to set the selected plan to whatever plan is clicked
@@ -31,6 +31,7 @@ const SelectPlan = ({ planPeriod, goBack, togglePlan, setSelectedPlan, selectedP
 	// Submit form and move forward by a page
 	const submitForm = (event) => {
 		event.preventDefault();
+		setCurrentVariant("nextPage");
 		setCurrentStep((prev) => prev + 1);
 	};
 

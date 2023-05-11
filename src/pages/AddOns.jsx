@@ -3,7 +3,7 @@ import GoBackBtn from '../components/buttons/GoBackBtn';
 import NextStep from '../components/buttons/NextStep';
 import PickAddsOn from '../components/PickAddsOn';
 
-const AddOns = ({ goBack, checkedStates, setCheckedStates, setAllAddOns, allAddOns, setCurrentStep }) => {
+const AddOns = ({ goBack, checkedStates, setCheckedStates, setAllAddOns, allAddOns, setCurrentStep, setCurrentVariant }) => {
 
     // Function changes the checked value in the allAddOns State
     const toggleCheckedAddsOn = (index) => {
@@ -38,7 +38,8 @@ const AddOns = ({ goBack, checkedStates, setCheckedStates, setAllAddOns, allAddO
     // Submit form
     const submitForm = (event) => {
         event.preventDefault();
-        setCurrentStep((prev) => prev + 1);
+        setCurrentVariant("nextPage");
+		setCurrentStep((prev) => prev + 1);
     };
 
     return (

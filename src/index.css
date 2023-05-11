@@ -7,6 +7,7 @@
 :root{
   min-height: 100vh;
   background-color: hsl(217, 100%, 97%);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .left-container{
@@ -62,53 +63,115 @@ input[type=number]::-webkit-outer-spin-button {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #020035;
+  background-color: #b0aebb;
+  -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 16px;
 }
 
-.slider-card {
+.slider:before {
   position: absolute;
   content: "";
-  height: var(--circle-dim);
-  width: var(--circle-dim);
-  border-radius: 10px;
-  left: 0.16em;
-  bottom: 0.16em;
+  height: 13px;
+  width: 13px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
   transition: .4s;
-  pointer-events: none;
 }
 
-.slider-card-face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  perspective: 1000px;
+input:checked + .slider {
+  background-color: hsl(213, 96%, 18%);
+}
+
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(21.5px);
+  -ms-transform: translateX(21.5px);
+  transform: translateX(21.5px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 22px;
+}
+
+.slider.round:before {
   border-radius: 50%;
-  transition: .4s transform;
 }
 
-.slider-card-front {
-  background-color: #ffffff;
+.light-shadow{
+  background: #ffffff;
+  border: solid 1px hsl(213, 96%, 18%);
 }
 
-.slider-card-back {
-  background-color: #ffffff;
-  transform: rotateY(180deg);
+.dark-shadow{
+  background: #151515;
+  border: solid 1px hsl(213, 96%, 18%);
 }
 
-input:checked ~ .slider-card .slider-card-back {
-  transform: rotateY(0);
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-input:checked ~ .slider-card .slider-card-front {
-  transform: rotateY(-180deg);
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
-input:checked ~ .slider-card {
-  transform: translateX(1.43em);
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #fff;
+  border-radius:4px;
+  border: solid 1px hsl(229, 24%, 87%);
 }
 
-input:checked ~ .slider {
-  background-color: #020035;
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+  border:transparent;
+
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

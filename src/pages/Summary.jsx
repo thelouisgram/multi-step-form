@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Finish from '../components/Finish';
 
-const Summary = ({ goBack, selectedPlan, setCurrentStep, checkedAddsOn }) => {
+const Summary = ({ goBack, selectedPlan, setCurrentStep, checkedAddsOn, setCurrentVariant }) => {
 
     // Render CheckedAddOns
     const addOn = checkedAddsOn.map((addOn, index) => {
@@ -19,6 +19,7 @@ const Summary = ({ goBack, selectedPlan, setCurrentStep, checkedAddsOn }) => {
 
     // Submit form here
     const submitForm = (event) => {
+        setCurrentVariant("nextPage")
         event.preventDefault()
         setCurrentStep(prev => prev + 1)
     }
