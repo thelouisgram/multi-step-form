@@ -10,7 +10,7 @@ const PickAddsOn = ({
   return (
     // Render Individual AddOn
     <div
-      className={`flex justify-between items-center border-[1px] px-3 md:px-6 py-4 rounded-[10px] 
+      className={`flex justify-between items-center border-[1px] p-2 xs:px-3 md:px-6 xs:py-4 rounded-[10px] 
                 hover:border-purplishBlue
                 ${
                   addOn.checked
@@ -18,8 +18,8 @@ const PickAddsOn = ({
                     : " border-lightGray bg-transparent"
                 }`}
     >
-      <div className="flex items-center gap-3 md:gap-6">
-        <label className="container w-[20px] h-[20px] rounded-[5px] flex items-center">
+      <div className="flex items-center gap-2 xs:gap-3 md:gap-6">
+        <label className="container w-[20px] h-[20px] mr-1  rounded-[5px] flex items-center">
           <input
             type="checkbox"
             checked={checkedStates[index]}
@@ -31,10 +31,10 @@ const PickAddsOn = ({
         </label>
         <div>
           <h3 className="font-[700] text-marineBlue">{addOn.title}</h3>
-          <p className="text-[14px] text-coolGray">{addOn.description}</p>
+          <p className="text-[12px] xs:text-[14px] text-coolGray">{addOn.description}</p>
         </div>
       </div>
-      <h4 className="text-purplishBlue font-[500] text-[15px]">
+      <h4 className="text-purplishBlue font-[500] text-[13px] xs:text-[15px]">
         +${addOn.price}/{addOn.periodMode}
       </h4>
     </div>

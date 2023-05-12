@@ -17,10 +17,11 @@ const NumberInput = ({ fieldRequired, formData, handleChange }) => {
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleChange}
+                minLength={8}
                 placeholder="e.g. +1 234 567 890"
-                className={`border-[1px] placeholder-bold placeholder-coolGray 
-					px-4 py-3 md:rounded-[8px] border-lightGray text-[16px] text-marineBlue 
-					font-[500] focus:outline-none focus:border-marineBlue rounded-[4px]
+              className={`border-[1px] placeholder-bold placeholder-coolGray p-3 xs:px-4 xs:py-3 text-marineBlue
+							 md:rounded-[8px] text-[12px] xs:text-[16px] font-[500] focus:outline-none 
+                             focus:border-marineBlue rounded-[4px]
 					${fieldRequired.input3 ? 'border-strawberryRed' : ''}`}
             />
         </div>

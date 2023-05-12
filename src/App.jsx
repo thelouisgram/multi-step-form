@@ -3,6 +3,7 @@ import data from './data/AddsOnData';
 import planData from './data/SelectPlanData';
 import RightContainer from './components/RightContainer';
 import LeftContainer from './components/LeftContainer';
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function App() {
   // Track page displayed
@@ -88,34 +89,39 @@ export default function App() {
 
   // Create a state variable to keep track of the current variant
   const [currentVariant, setCurrentVariant] = useState("default");
-  console.log(currentVariant)
 
   const variants = {
     nextPage: {
-      initial: { opacity: 0, x: 40 },
+      initial: { opacity: 0, x: 120 },
       animate: { opacity: 1, x: 0 },
-      exit: { opacity: 0, x: -40 },
+      exit: { opacity: 0, x: -120 },
       transition: { duration: 1, ease: 'easeInOut' }
     },
     goBack: {
-      initial: { opacity: 0, x: -40 },
+      initial: { opacity: 0, x: -120 },
       animate: { opacity: 1, x: 0 },
-      exit: { opacity: 0, x: 40 },
+      exit: { opacity: 0, x: 120 },
       transition: { duration: 1, ease: 'easeInOut' }
     },
     default: {
-      initial: { opacity: 0, y: 30 },
+      initial: { opacity: 0, y: 15 },
       animate: { opacity: 1, y: 0 },
       transition: { duration: 1, ease: 'easeInOut' }
     }
   };
 
   return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ease: "easeInOut", duration: 2 }}
+      >
     <div className='h-full md:h-[100vh]'>
       {/* Entire Page container */}
       <section id="page" className="bg-magnolia  md:px-0 pt-10 pb-10 md:pb-0 md:pt-0 w-full h-full flex justify-center md:items-center">
         {/* Content Container */}
-        <div className="md:w-[980px]  md:h-[600px] px-6 h-auto md:bg-white 
+        <div className="md:w-[980px] md:my-14 md:h-[600px] px-3 xs:px-6 h-auto md:bg-white w-full
         rounded-[15px] flex flex-col md:flex-row md:p-4">
           {/* Left Div Container */}
           <LeftContainer currentStep={currentStep} />
@@ -145,5 +151,7 @@ export default function App() {
         </div>
       </section>
     </div>
+    </motion.div>
+    </AnimatePresence >
   );
 }

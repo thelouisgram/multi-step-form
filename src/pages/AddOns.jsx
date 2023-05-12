@@ -49,9 +49,9 @@ const AddOns = ({ goBack, checkedStates, setCheckedStates, setAllAddOns, allAddO
                 {/* Upper Container */}
                 <div>
                     {/* Legend and form description */}
-                    <div className="mb-10">
-                        <legend className="text-[32px] font-Ubuntu font-bold text-marineBlue">Pick add-ons</legend>
-                        <p className="text-coolGray text-[16px] font-Ubuntu">
+                    <div className="mb-8 xs:mb-10">
+                        <legend className="text-[24px] xs:text-[32px] font-Ubuntu font-bold text-marineBlue">Pick add-ons</legend>
+                        <p className="text-coolGray text-[14px] xs:text-[16px] font-Ubuntu">
                             Add-ons help enhance your gaming experience.
                         </p>
                     </div>

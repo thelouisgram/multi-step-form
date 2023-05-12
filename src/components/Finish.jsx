@@ -12,17 +12,17 @@ const Finish = ({ submitForm, selectedPlan, goBack, totalPrice, setCurrentStep, 
                         {/* Upper Container */}
                         <div>
                             {/* Legend and form description */}
-                            <div className="mb-10">
-                                <legend className="text-[32px] font-Ubuntu font-bold text-marineBlue">
+                            <div className="mb-6 xs:mb-10">
+                                <legend className="text-[24px] xs:text-[32px] font-Ubuntu font-bold text-marineBlue">
                                     Finishing up
                                 </legend>
-                                <p className="text-coolGray text-[16px] font-Ubuntu">
+                                <p className="text-coolGray text-[14px] xs:text-[16px] font-Ubuntu">
                                     Double-check everything looks OK before confirming.
                                 </p>
                             </div>
                             <div>
-                                <div className="flex flex-col p-6 mb-6
-                            rounded-[10px] bg-magnolia">
+                                <div className="flex flex-col p-3 xs:p-6 mb-6 rounded-[5px]
+                            xs:rounded-[10px] bg-magnolia">
                                     <div className="flex flex-row justify-between items-center">
                                         <div className="flex flex-col ">
                                             <h2 className="font-[700] text-marineBlue">
@@ -33,13 +33,13 @@ const Finish = ({ submitForm, selectedPlan, goBack, totalPrice, setCurrentStep, 
                                                     setCurrentStep(1),
                                                     setCurrentVariant=("goBack")
                                                 }}
-                                                className="text-coolGray text-[14px] underline cursor-pointer
+                                                className="text-coolGray text-[14px] xs:text-[14px] underline cursor-pointer
                                  hover:text-purplishBlue"
                                             >
                                                 Change
                                             </p>
                                         </div>
-                                        <h3 className="text-marineBlue text-[16px]
+                                        <h3 className="text-marineBlue text-[14px] xs:text-[16px]
                             font-[700]">
                                             ${selectedPlan.price}/{selectedPlan.periodMode}
                                         </h3>
@@ -52,9 +52,9 @@ const Finish = ({ submitForm, selectedPlan, goBack, totalPrice, setCurrentStep, 
                                     )}
                                 </div>
 
-                                <div className="px-6 flex justify-between items-center">
-                                    <h2 className="text-coolGray text-[15px]">Total (per {selectedPlan.duration})</h2>
-                                    <h2 className="text-purplishBlue text-[24px] font-[700]">
+                                <div className="px-3 xs:px-6 flex justify-between items-center">
+                                    <h2 className="text-coolGray text-[13px] xs:text-[15px]">Total (per {selectedPlan.duration})</h2>
+                                    <h2 className="text-purplishBlue text-[18px] xs:text-[24px] font-[700]">
                                         +${totalPrice}/{selectedPlan.periodMode}
                                     </h2>
                                 </div>

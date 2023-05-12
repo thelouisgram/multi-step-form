@@ -50,9 +50,9 @@ const PersonalInfo = ({ formData, setFormData, setCurrentStep, setCurrentVariant
 				{/* Upper Container */}
 				<div>
 					{/* Legend and form description */}
-					<div className="mb-10">
-						<legend className="text-[32px] font-Ubuntu font-bold text-marineBlue">Personal Info</legend>
-						<p className="text-coolGray text-[16px] font-Ubuntu">
+					<div className="mb-6 xs:mb-10">
+						<legend className="text-[24px] xs:text-[32px] font-Ubuntu font-bold text-marineBlue">Personal Info</legend>
+						<p className="text-coolGray text-[14px] xs:text-[16px] font-Ubuntu">
 							Please provide your name, email address, and phone number.
 						</p>
 					</div>
