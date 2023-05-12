@@ -12,7 +12,7 @@ const RightContainer = ({ currentStep, formData, setFormData, planPeriod, goBack
     selectedData, checkedStates, setCheckedStates, setAllAddOns, allAddOns, checkedAddsOn, 
     variants, nextPage, currentVariant, setCurrentVariant }) => {
   return (
-      <div className="md:w-[680px] shadow-lg md:shadow-none overflow-hidden bg-white md:bg-transparent rounded-[10px] md:rounded-0 
+      <div className="md:w-[680px] shadow-lg md:shadow-none overflow-hidden transition-all duration-500 bg-white md:bg-transparent rounded-[10px] md:rounded-0 
       py-10 px-4 xs:px-6 md:px-28 md:pt-10 md:pb-6 md:h-full">
           {/* Personal Info form */}
           <AnimatePresence mode="wait">
