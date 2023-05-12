@@ -53,12 +53,6 @@ export default function App() {
     setPlanPeriod((prev) => !prev);
   };
 
-  //Next page
-  const nextPage = () => {
-    setCurrentStep((prev) => prev + 1);
-    setCurrentVariant("nextPage")
-  }
-
   // Go back one page
   const goBack = () => {
     setCurrentStep((prev) => prev - 1);
@@ -92,15 +86,15 @@ export default function App() {
 
   const variants = {
     nextPage: {
-      initial: { opacity: 0, x: 120 },
+      initial: { opacity: 0, x: 200 },
       animate: { opacity: 1, x: 0 },
-      exit: { opacity: 0, x: -120 },
+      exit: { opacity: 0, x: -200 },
       transition: { duration: 1, ease: 'easeInOut' }
     },
     goBack: {
-      initial: { opacity: 0, x: -120 },
+      initial: { opacity: 0, x: -200 },
       animate: { opacity: 1, x: 0 },
-      exit: { opacity: 0, x: 120 },
+      exit: { opacity: 0, x: 200 },
       transition: { duration: 1, ease: 'easeInOut' }
     },
     default: {
